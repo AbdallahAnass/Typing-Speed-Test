@@ -8,6 +8,9 @@ let dataModule = (function () {
     accuracy: null,
   };
 
+  // Test words
+  let testWords = [];
+
   // Private Methods
 
   // Public Methods
@@ -26,6 +29,14 @@ let dataModule = (function () {
         cpm: testIndicators.cps,
         accuracy: testIndicators.accuracy,
       };
+    },
+
+    fillTestWords: function (words) {
+      testWords = words;
+    },
+
+    getTestWord: function () {
+      return testWords;
     },
   };
 })();
