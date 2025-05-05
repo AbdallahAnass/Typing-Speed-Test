@@ -1,0 +1,31 @@
+let dataModule = (function () {
+  // Data fields
+  let testIndicators = {
+    totalTestTime: 60,
+    timeLeft: null,
+    wps: null,
+    cps: null,
+    accuracy: null,
+  };
+
+  // Private Methods
+
+  // Public Methods
+  return {
+    initializeIndicators: function () {
+      testIndicators.timeLeft = testIndicators.totalTestTime;
+      testIndicators.wps = 0;
+      testIndicators.cps = 0;
+      testIndicators.accuracy = 0;
+    },
+
+    getResults() {
+      return {
+        timeLeft: testIndicators.timeLeft,
+        wpm: testIndicators.wps,
+        cpm: testIndicators.cps,
+        accuracy: testIndicators.accuracy,
+      };
+    },
+  };
+})();
