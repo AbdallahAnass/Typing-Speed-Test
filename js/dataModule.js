@@ -19,7 +19,7 @@ let dataModule = (function () {
       testIndicators.accuracy = 0;
     },
 
-    getResults() {
+    getResults: function () {
       return {
         timeLeft: testIndicators.timeLeft,
         wpm: testIndicators.wps,
