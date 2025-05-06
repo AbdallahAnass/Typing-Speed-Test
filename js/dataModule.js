@@ -11,6 +11,13 @@ let dataModule = (function () {
   // Test words
   let testWords = [];
 
+  // Current word
+  let currentWord = {
+    word: null,
+    user: null,
+    wordIndex: null,
+  };
+
   // Private Methods
 
   // Public Methods
@@ -41,6 +48,10 @@ let dataModule = (function () {
 
     countDown: function () {
       testIndicators.timeLeft--;
+    },
+
+    provideInput: function (input) {
+      currentWord.user = input.split("");
     },
   };
 })();

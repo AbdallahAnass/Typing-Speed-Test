@@ -6,6 +6,7 @@ let uiModule = (function () {
     accuracy: document.getElementById("accuracy"),
     time: document.getElementById("time"),
     screen: document.getElementById("screen"),
+    userInput: document.getElementById("userInput"),
   };
 
   // Private Methods
@@ -40,6 +41,14 @@ let uiModule = (function () {
 
       // Display it on the screen
       DOMelements.screen.innerHTML = words;
+    },
+
+    getUserInput: function () {
+      return DOMelements.userInput.value;
+    },
+
+    clearInput: function () {
+      DOMelements.userInput.value = "";
     },
   };
 })();
