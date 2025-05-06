@@ -38,5 +38,9 @@ let dataModule = (function () {
     getTestWord: function () {
       return testWords;
     },
+
+    countDown: function () {
+      testIndicators.timeLeft--;
+    },
   };
 })();
