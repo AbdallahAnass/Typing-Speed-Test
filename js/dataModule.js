@@ -13,8 +13,8 @@ let dataModule = (function () {
 
   // Current word
   let currentWord = {
-    word: null,
-    user: null,
+    word: [],
+    user: [],
     wordIndex: -1,
   };
 
@@ -57,7 +57,16 @@ let dataModule = (function () {
     setActiveWord: function () {
       let index = ++currentWord.wordIndex;
       currentWord.word = testWords[index].split("");
+      currentWord.user = [];
       return index;
+    },
+
+    getCurrentWord: function () {
+      return {
+        word: currentWord.word,
+        user: currentWord.user,
+        wordIndex: currentWord.wordIndex,
+      };
     },
   };
 })();

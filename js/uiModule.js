@@ -57,5 +57,29 @@ let uiModule = (function () {
         DOMelements.screen.children[index - 1].className = "";
       }
     },
+
+    colorChars: function (word) {
+      for (let i = 0; i < word.word.length; i++) {
+        if (word.word[i] == word.user[i]) {
+          DOMelements.screen.children[word.wordIndex].children[i].className =
+            "correct";
+        } else if (word.user[i] == null) {
+          DOMelements.screen.children[word.wordIndex].children[i].className =
+            "";
+        } else {
+          DOMelements.screen.children[word.wordIndex].children[i].className =
+            "wrong";
+        }
+      }
+    },
+
+    ifWordNotFinished: function (word) {
+      if (word.word.length != word.user.length) {
+        for (let i = word.user.length; i < word.word.length; i++) {
+          DOMelements.screen.children[word.wordIndex].children[i].className =
+            "wrong";
+        }
+      }
+    },
   };
 })();
