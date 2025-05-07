@@ -50,5 +50,12 @@ let uiModule = (function () {
     clearInput: function () {
       DOMelements.userInput.value = "";
     },
+
+    highlightWord: function (index) {
+      DOMelements.screen.children[index].className = "active";
+      if (index != 0) {
+        DOMelements.screen.children[index - 1].className = "";
+      }
+    },
   };
 })();

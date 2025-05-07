@@ -15,7 +15,7 @@ let dataModule = (function () {
   let currentWord = {
     word: null,
     user: null,
-    wordIndex: null,
+    wordIndex: -1,
   };
 
   // Private Methods
@@ -52,6 +52,12 @@ let dataModule = (function () {
 
     provideInput: function (input) {
       currentWord.user = input.split("");
+    },
+
+    setActiveWord: function () {
+      let index = ++currentWord.wordIndex;
+      currentWord.word = testWords[index].split("");
+      return index;
     },
   };
 })();
