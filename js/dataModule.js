@@ -6,6 +6,7 @@ let dataModule = (function () {
     wpm: 0,
     cpm: 0,
     accuracy: 0,
+    totalCorrectWords: 0,
   };
 
   // Test words
@@ -19,6 +20,15 @@ let dataModule = (function () {
   };
 
   // Private Methods
+  function isCorrectWord(word) {
+    for (let i = 0; i < word.word.length; i++) {
+      if (word.word[i] !== word.user[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 
   // Public Methods
   return {
@@ -67,6 +77,15 @@ let dataModule = (function () {
         user: currentWord.user,
         wordIndex: currentWord.wordIndex,
       };
+    },
+
+    calcWPM: function (word) {
+      if (isCorrectWord(word)) {
+        testIndicators.totalCorrectWords++;
+      }
+
+      testIndicators.wpm =
+        testIndicators.totalCorrectWords / (testIndicators.totalTestTime / 60);
     },
   };
 })();
