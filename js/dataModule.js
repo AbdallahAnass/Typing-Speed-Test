@@ -3,9 +3,9 @@ let dataModule = (function () {
   let testIndicators = {
     totalTestTime: 60,
     timeLeft: null,
-    wps: null,
-    cps: null,
-    accuracy: null,
+    wpm: 0,
+    cpm: 0,
+    accuracy: 0,
   };
 
   // Test words
