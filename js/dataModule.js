@@ -8,6 +8,7 @@ let dataModule = (function () {
     accuracy: 0,
     totalCorrectWords: 0,
     totalCorrectChars: 0,
+    totalChars: 0,
   };
 
   // Test words
@@ -94,8 +95,15 @@ let dataModule = (function () {
         testIndicators.totalCorrectChars += word.word.length;
       }
 
+      testIndicators.totalChars += word.word.length;
+
       testIndicators.cpm =
         testIndicators.totalCorrectChars / (testIndicators.totalTestTime / 60);
+    },
+
+    calcAccuracy: function () {
+      testIndicators.accuracy =
+        (testIndicators.totalCorrectChars / testIndicators.totalChars) * 100;
     },
   };
 })();
