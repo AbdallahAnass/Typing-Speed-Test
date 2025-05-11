@@ -7,6 +7,7 @@ let dataModule = (function () {
     cpm: 0,
     accuracy: 0,
     totalCorrectWords: 0,
+    totalCorrectChars: 0,
   };
 
   // Test words
@@ -86,6 +87,15 @@ let dataModule = (function () {
 
       testIndicators.wpm =
         testIndicators.totalCorrectWords / (testIndicators.totalTestTime / 60);
+    },
+
+    calcCPM: function (word) {
+      if (isCorrectWord(word)) {
+        testIndicators.totalCorrectChars += word.word.length;
+      }
+
+      testIndicators.cpm =
+        testIndicators.totalCorrectChars / (testIndicators.totalTestTime / 60);
     },
   };
 })();
