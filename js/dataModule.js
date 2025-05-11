@@ -44,8 +44,8 @@ let dataModule = (function () {
     getResults: function () {
       return {
         timeLeft: testIndicators.timeLeft,
-        wpm: testIndicators.wps,
-        cpm: testIndicators.cps,
+        wpm: testIndicators.wpm,
+        cpm: testIndicators.cpm,
         accuracy: testIndicators.accuracy,
       };
     },

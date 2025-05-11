@@ -31,7 +31,7 @@ let uiModule = (function () {
     displayResults: function (data) {
       DOMelements.wpm.innerHTML = data.wpm;
       DOMelements.cpm.innerHTML = data.cpm;
-      DOMelements.accuracy.innerHTML = data.accuracy;
+      DOMelements.accuracy.innerHTML = Math.round(data.accuracy, 1);
       DOMelements.time.innerHTML = data.timeLeft;
     },
 
