@@ -54,10 +54,6 @@ let dataModule = (function () {
       testWords = words;
     },
 
-    getTestWord: function () {
-      return testWords;
-    },
-
     countDown: function () {
       testIndicators.timeLeft--;
     },
