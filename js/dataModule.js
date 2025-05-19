@@ -9,6 +9,8 @@ let dataModule = (function () {
     totalCorrectWords: 0,
     totalCorrectChars: 0,
     totalChars: 0,
+    testStarted: false,
+    testEnded: false,
   };
 
   // Test words
@@ -55,7 +57,11 @@ let dataModule = (function () {
     },
 
     countDown: function () {
-      testIndicators.timeLeft--;
+      if (testIndicators.timeLeft == 0) {
+        testIndicators.testEnded = true;
+      } else {
+        testIndicators.timeLeft--;
+      }
     },
 
     provideInput: function (input) {
@@ -100,6 +106,17 @@ let dataModule = (function () {
     calcAccuracy: function () {
       testIndicators.accuracy =
         (testIndicators.totalCorrectChars / testIndicators.totalChars) * 100;
+    },
+
+    getTestTimeStatus: function () {
+      return {
+        testStart: testIndicators.testStarted,
+        testEnd: testIndicators.testEnded,
+      };
+    },
+
+    startTest: function () {
+      testIndicators.testStarted = true;
     },
   };
 })();

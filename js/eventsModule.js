@@ -1,8 +1,17 @@
 let eventsModule = (function () {
   // Data fields
+  let time = null;
 
   // Private Methods
   function handleUserEvents(e) {
+    // Starting the test if it not already started
+    if (!dataModule.getTestTimeStatus().testStart) {
+      // Starting the time
+      dataModule.startTest();
+
+      // Displaying result every second
+      time = setInterval(startTest, 1000);
+    }
     // Getting user input
     let userInput = uiModule.getUserInput();
 
@@ -26,10 +35,6 @@ let eventsModule = (function () {
       // Updating accuracy (data module)
       dataModule.calcAccuracy(currentWord);
 
-      // Getting the result and displaying them on the screen
-      let data = dataModule.getResults();
-      uiModule.displayResults(data);
-
       // If user didn't finish the word
       uiModule.ifWordNotFinished(currentWord);
 
@@ -42,6 +47,13 @@ let eventsModule = (function () {
       // Highlighting the new active word
       uiModule.highlightWord(currentWord);
     }
+  }
+
+  function startTest() {
+    dataModule.countDown();
+    // Getting the result and displaying them on the screen
+    let data = dataModule.getResults();
+    uiModule.displayResults(data);
   }
 
   // Public Methods
