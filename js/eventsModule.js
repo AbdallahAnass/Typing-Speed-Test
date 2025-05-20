@@ -50,10 +50,24 @@ let eventsModule = (function () {
   }
 
   function startTest() {
+    // Starting time count down
     dataModule.countDown();
+
     // Getting the result and displaying them on the screen
     let data = dataModule.getResults();
     uiModule.displayResults(data);
+
+    // Checking the end of test
+    if (dataModule.getTestTimeStatus().testEnd) {
+      // Ending the test if time is over
+      endTest();
+    }
+  }
+
+  function endTest() {
+    // Ending the input and result displaying
+    clearInterval(time);
+    document.removeEventListener("keyup", handleUserEvents);
   }
 
   // Public Methods
