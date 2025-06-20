@@ -7,6 +7,7 @@ let uiModule = (function () {
     time: document.getElementById("time"),
     screen: document.getElementById("screen"),
     userInput: document.getElementById("userInput"),
+    cerForm: document.getElementById("cerForm"),
   };
 
   // Private Methods
@@ -80,6 +81,20 @@ let uiModule = (function () {
             "wrong";
         }
       }
+    },
+
+    displayForm: function (data) {
+      // Filling level name
+      cerForm.children[0].children[0].innerHTML = data.name;
+
+      // Adding the image
+      cerForm.children[1].setAttribute("src", `/images/l${data.level}.jpg`);
+      console.log(cerForm.children[1]);
+
+      // Filling level description
+      cerForm.children[2].innerHTML = data.description;
+
+      cerForm.style.display = "block";
     },
   };
 })();

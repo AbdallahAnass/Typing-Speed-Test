@@ -118,5 +118,57 @@ let dataModule = (function () {
     startTest: function () {
       testIndicators.testStarted = true;
     },
+
+    calcLevel: function () {
+      if (testIndicators.wpm <= 20) {
+        return {
+          level: 1,
+          name: "Sloth",
+          description: "Just starting, keep practicing!",
+        };
+      } else if (testIndicators.wpm <= 35) {
+        return {
+          level: 2,
+          name: "Turtle",
+          description: "Slow but steady progress.",
+        };
+      } else if (testIndicators.wpm <= 50) {
+        return {
+          level: 3,
+          name: "Rabbit",
+          description: "Decent speed, getting better!",
+        };
+      } else if (testIndicators.wpm <= 65) {
+        return {
+          level: 4,
+          name: "Fox",
+          description: "Above average, nice work!",
+        };
+      } else if (testIndicators.wpm <= 80) {
+        return {
+          level: 5,
+          name: "Cheetah",
+          description: "Fast typist, great job!",
+        };
+      } else if (testIndicators.wpm <= 100) {
+        return {
+          level: 6,
+          name: "Rocket",
+          description: "Professional-level speed!",
+        };
+      } else if (testIndicators.wpm <= 120) {
+        return {
+          level: 7,
+          name: "Typing Bot",
+          description: "Extremely fast, almost robotic!",
+        };
+      } else {
+        return {
+          level: 8,
+          name: "T-REX",
+          description: "	Elite typist, you dominate the keyboard!",
+        };
+      }
+    },
   };
 })();

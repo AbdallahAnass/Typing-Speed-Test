@@ -68,6 +68,12 @@ let eventsModule = (function () {
     // Ending the input and result displaying
     clearInterval(time);
     document.removeEventListener("keyup", handleUserEvents);
+
+    // Calculating level
+    let level = dataModule.calcLevel();
+
+    // Displaying result form
+    uiModule.displayForm(level);
   }
 
   // Public Methods
