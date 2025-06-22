@@ -86,6 +86,8 @@ let cerModule = (function () {
 
       doc.setFontSize(30);
       doc.setFont("times", "bold");
+      // Rounding accuracy
+      accuracy = Math.round(accuracy, 1);
       doc.text(String(accuracy) + "%", 200, 172, "center");
 
       doc.save("certificate.pdf");
