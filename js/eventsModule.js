@@ -76,6 +76,17 @@ let eventsModule = (function () {
     uiModule.displayForm(level);
   }
 
+  function showCertification() {
+    // Getting user name
+    let username = document.getElementById("username").value;
+
+    // Getting all the information for the certificate
+    let data = dataModule.getResults();
+
+    // Generating the certification
+    cerModule.generateCertificate(username, data.wpm, data.cpm, data.accuracy);
+  }
+
   // Public Methods
   return {
     initializeTest: function () {
@@ -101,6 +112,11 @@ let eventsModule = (function () {
 
       // Starting the test when user starts typing
       document.addEventListener("keyup", handleUserEvents);
+
+      // Adding an event listener to generate button
+      document
+        .getElementById("generate")
+        .addEventListener("click", showCertification);
     },
   };
 })();

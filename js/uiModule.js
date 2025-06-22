@@ -89,7 +89,6 @@ let uiModule = (function () {
 
       // Adding the image
       cerForm.children[1].setAttribute("src", `/images/l${data.level}.jpg`);
-      console.log(cerForm.children[1]);
 
       // Filling level description
       cerForm.children[2].innerHTML = data.description;
