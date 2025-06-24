@@ -1,0 +1,148 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background: url("../images/background.jpg") center center/cover no-repeat;
+}
+
+.indicators {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.indicators div {
+  border: 1px solid white;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 2rem;
+  position: relative;
+}
+
+.indicators div::after {
+  position: absolute;
+  bottom: -40px;
+  font-weight: 500;
+}
+
+.indicators div#wpm::after {
+  content: "WPM";
+}
+
+.indicators div#cpm::after {
+  content: "CPM";
+}
+
+.indicators div#accuracy::after {
+  content: "Accuracy";
+}
+
+.indicators div#time::after {
+  content: "Time";
+}
+
+#screen {
+  border: 1px solid black;
+  width: 50%;
+  height: 200px;
+  margin: 50px auto;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+}
+
+#userInput {
+  width: 50%;
+  margin: 20px auto;
+  display: block;
+  padding: 20px;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+}
+
+.active {
+  background-color: #e6f3ff;
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+#cerForm {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+#cerForm::after {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: -1;
+}
+
+#cerForm h1 {
+  color: #188ba3;
+  font-size: 2rem;
+}
+
+#cerForm img {
+  width: 50%;
+  border-radius: 5px;
+}
+
+#cerForm p {
+  font-size: 1.2rem;
+}
+
+#cerForm input {
+  width: 50%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #188ba3;
+}
+
+#cerForm button {
+  all: unset;
+  padding: 1rem;
+  border: 5px solid #188ba3;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #188ba3;
+  transition: all linear 0.5s;
+}
+
+#cerForm button:hover,
+#cerForm button:focus {
+  background-color: #188ba3;
+  color: white;
+}

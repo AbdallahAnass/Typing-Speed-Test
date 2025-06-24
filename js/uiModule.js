@@ -93,7 +93,7 @@ let uiModule = (function () {
       // Filling level description
       cerForm.children[2].innerHTML = data.description;
 
-      cerForm.style.display = "block";
+      cerForm.style.display = "flex";
     },
   };
 })();

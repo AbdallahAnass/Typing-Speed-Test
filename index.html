@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- indicators start -->
+    <div class="indicators">
+      <div id="wpm"></div>
+      <div id="cpm"></div>
+      <div id="accuracy"></div>
+      <div id="time"></div>
+    </div>
+    <!-- indicators end -->
+
+    <!-- screen start -->
+    <div id="screen"></div>
+    <input type="text" id="userInput" autofocus />
+    <!-- screen end -->
+
+    <!-- Form start -->
+    <div id="cerForm">
+      <h1>You are a <span></span></h1>
+      <img src="/images/Untitled.jpg" alt="" />
+      <p></p>
+      <input
+        type="text"
+        id="username"
+        autocomplete="off"
+        placeholder="Enter your name"
+      />
+      <button id="generate">Generate certificate</button>
+    </div>
+    <!-- Form end -->
+
+    <script src="./js/uiModule.js"></script>
+    <script src="./js/dataModule.js"></script>
+    <script src="./js/wordsModule.js"></script>
+    <script src="./js/eventsModule.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.0/jspdf.umd.min.js"></script>
+    <script src="./js/cerModule.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

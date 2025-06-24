@@ -6,7 +6,6 @@ let cerModule = (function () {
   let pageCenter = 279.4 / 2;
   let primaryColor = "#188ba3";
   let secondaryColor = "#000000";
-  let username = "";
 
   // Private methods
   // Public methods
