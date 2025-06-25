@@ -1,3 +1,8 @@
+/* Variables */
+:root {
+  --degree: 360deg;
+}
+
 body {
   position: relative;
   margin: 0;
@@ -50,6 +55,22 @@ body {
 
 .indicators div#time::after {
   content: "Time";
+  bottom: -50px;
+}
+
+.indicators div#time::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-image: conic-gradient(
+    blue 0deg,
+    blue var(--degree),
+    white 0deg,
+    white 0deg
+  );
+  border-radius: 50%;
+  z-index: -1;
 }
 
 #screen {

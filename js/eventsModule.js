@@ -57,6 +57,9 @@ let eventsModule = (function () {
     let data = dataModule.getResults();
     uiModule.displayResults(data);
 
+    // Timer animation
+    uiModule.timerAnimation(data.timeLeft);
+
     // Checking the end of test
     if (dataModule.getTestTimeStatus().testEnd) {
       // Ending the test if time is over

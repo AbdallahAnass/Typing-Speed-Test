@@ -95,5 +95,16 @@ let uiModule = (function () {
 
       cerForm.style.display = "flex";
     },
+
+    timerAnimation: function (timeLeft) {
+      // Calculating the degree
+      let currentDegree = 360 - (60 - timeLeft) * 6;
+
+      // Updating the degree variable
+      document.documentElement.style.setProperty(
+        "--degree",
+        `${currentDegree}deg`
+      );
+    },
   };
 })();
