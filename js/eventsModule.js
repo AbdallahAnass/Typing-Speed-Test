@@ -81,13 +81,22 @@ let eventsModule = (function () {
 
   function showCertification() {
     // Getting user name
-    let username = document.getElementById("username").value;
+    let username = uiModule.getUsername();
 
     // Getting all the information for the certificate
     let data = dataModule.getResults();
 
-    // Generating the certification
-    cerModule.generateCertificate(username, data.wpm, data.cpm, data.accuracy);
+    // Generating the certification after verifying username
+    if (dataModule.verifyUsername(username)) {
+      cerModule.generateCertificate(
+        username,
+        data.wpm,
+        data.cpm,
+        data.accuracy
+      );
+    } else {
+      uiModule.wrongUsername();
+    }
   }
 
   // Public Methods

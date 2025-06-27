@@ -8,6 +8,7 @@ let uiModule = (function () {
     screen: document.querySelector(".container"),
     userInput: document.getElementById("userInput"),
     cerForm: document.getElementById("cerForm"),
+    username: document.getElementById("username"),
   };
 
   // Private Methods
@@ -129,6 +130,28 @@ let uiModule = (function () {
         "--degree",
         `${currentDegree}deg`
       );
+    },
+
+    getUsername: function () {
+      // Getting value of username
+      return DOMelements.username.value;
+    },
+
+    wrongUsername: function () {
+      // Red border on input field
+      DOMelements.username.style.border = "5px solid red";
+
+      // Invalid input message
+      let message =
+        "Username name must not be empty or more than 30 characters";
+
+      let errorElement = document.createElement("div");
+      errorElement.innerHTML = message;
+
+      errorElement.setAttribute("class", "error");
+
+      // Inserting the error node to the form before the input field
+      DOMelements.cerForm.insertBefore(errorElement, DOMelements.username);
     },
   };
 })();

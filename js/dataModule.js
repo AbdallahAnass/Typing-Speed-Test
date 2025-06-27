@@ -170,5 +170,15 @@ let dataModule = (function () {
         };
       }
     },
+
+    verifyUsername: function (name) {
+      if (name == "" || name == null) {
+        return false;
+      } else if (name.length > 30) {
+        return false;
+      }
+
+      return true;
+    },
   };
 })();

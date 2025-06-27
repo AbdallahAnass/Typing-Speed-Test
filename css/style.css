@@ -168,3 +168,9 @@ body {
   background-color: #188ba3;
   color: white;
 }
+
+.error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
