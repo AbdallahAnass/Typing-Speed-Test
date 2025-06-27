@@ -153,5 +153,25 @@ let uiModule = (function () {
       // Inserting the error node to the form before the input field
       DOMelements.cerForm.insertBefore(errorElement, DOMelements.username);
     },
+
+    renderRetake: function () {
+      // Deleting the generate button
+      document.getElementById("generate").remove();
+
+      // Rendering the retake button
+      let retake = document.createElement("button");
+      retake.innerHTML = "Retake test";
+
+      // Adding an id
+      retake.setAttribute("id", "retake");
+
+      // Adding the element to the Form
+      DOMelements.cerForm.appendChild(retake);
+    },
+
+    reloadPage: function () {
+      // Reloading page
+      location.reload();
+    },
   };
 })();

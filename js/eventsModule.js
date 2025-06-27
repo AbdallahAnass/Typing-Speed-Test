@@ -94,6 +94,19 @@ let eventsModule = (function () {
         data.cpm,
         data.accuracy
       );
+
+      // Removing event listener from generate button
+      document
+        .getElementById("generate")
+        .removeEventListener("click", showCertification);
+
+      // Replacing generate button with retake test button
+      uiModule.renderRetake();
+
+      // Adding an eventListener to the retake button
+      document
+        .getElementById("retake")
+        .addEventListener("click", uiModule.reloadPage);
     } else {
       uiModule.wrongUsername();
     }
