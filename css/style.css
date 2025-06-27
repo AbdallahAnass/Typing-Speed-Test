@@ -85,6 +85,10 @@ body {
   position: relative;
 }
 
+.container {
+  transition: all linear 0.5s;
+}
+
 #userInput {
   width: 50%;
   margin: 20px auto;
