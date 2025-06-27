@@ -5,7 +5,7 @@ let uiModule = (function () {
     cpm: document.getElementById("cpm"),
     accuracy: document.getElementById("accuracy"),
     time: document.getElementById("time"),
-    screen: document.getElementById("screen"),
+    screen: document.querySelector(".container"),
     userInput: document.getElementById("userInput"),
     cerForm: document.getElementById("cerForm"),
   };
@@ -25,6 +25,27 @@ let uiModule = (function () {
     }
 
     return result;
+  }
+
+  function centerWord() {
+    // Getting element's heights for measuring
+    let wordHeight = document.querySelector(".active").offsetTop;
+
+    // Getting padding of the container
+    let container = document.querySelector("#screen");
+
+    let padding = window
+      .getComputedStyle(container)
+      .getPropertyValue("padding")
+      .replace("px", "");
+
+    padding = parseInt(padding);
+
+    // Calculating the total move for the word
+    wordHeight -= padding;
+
+    // Moving the text
+    DOMelements.screen.style.transform = `translateY(-${wordHeight}px)`;
   }
 
   // Public Methods
@@ -57,6 +78,9 @@ let uiModule = (function () {
       if (index != 0) {
         DOMelements.screen.children[index - 1].className = "";
       }
+
+      // Centering the active word vertically
+      centerWord();
     },
 
     colorChars: function (word) {
