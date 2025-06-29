@@ -26,6 +26,10 @@ let eventsModule = (function () {
     } // If user pressed space
     else {
       let currentWord = dataModule.getCurrentWord();
+
+      // If user input exceeds the actual word length sets the word as empty (wrong)
+      currentWord = dataModule.exceedWordLength(currentWord);
+
       // Updating WPM (data module)
       dataModule.calcWPM(currentWord);
 

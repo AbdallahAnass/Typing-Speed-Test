@@ -196,5 +196,14 @@ let dataModule = (function () {
 
       return true;
     },
+
+    exceedWordLength: function (word) {
+      if (word.word.length < word.user.length) {
+        // Changing the user input to be empty
+        word.user = [];
+      }
+
+      return word;
+    },
   };
 })();
