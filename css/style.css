@@ -3,6 +3,7 @@
   --degree: 360deg;
 }
 
+/* Body Start */
 body {
   position: relative;
   margin: 0;
@@ -15,7 +16,9 @@ body {
   align-content: center;
   background: url("../images/background.jpg") center center/cover no-repeat;
 }
+/* Body End */
 
+/* Indicators start */
 .indicators {
   display: flex;
   justify-content: space-evenly;
@@ -72,7 +75,9 @@ body {
   border-radius: 50%;
   z-index: -1;
 }
+/* Indicators end */
 
+/* Main screen start*/
 #screen {
   border: 1px solid black;
   width: 50%;
@@ -97,19 +102,9 @@ body {
   border-radius: 1rem;
   font-size: 1.5rem;
 }
+/* Main screen end*/
 
-.active {
-  background-color: #e6f3ff;
-}
-
-.correct {
-  color: green;
-}
-
-.wrong {
-  color: red;
-}
-
+/* Certification form start */
 #cerForm {
   display: none;
   position: absolute;
@@ -172,7 +167,22 @@ body {
   background-color: #188ba3;
   color: white;
 }
+/* Certification form end */
 
+/* Classes for styling the word */
+.active {
+  background-color: #e6f3ff;
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+/* Class for error message in  certification form */
 .error {
   color: red;
   text-align: center;

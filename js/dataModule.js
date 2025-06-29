@@ -57,21 +57,29 @@ let dataModule = (function () {
     },
 
     countDown: function () {
+      // Ending test if there is no time left
       if (testIndicators.timeLeft == 0) {
         testIndicators.testEnded = true;
       } else {
+        // Decrement the time by 1s
         testIndicators.timeLeft--;
       }
     },
 
     provideInput: function (input) {
+      // Splitting the user entered word into characters
       currentWord.user = input.split("");
     },
 
     setActiveWord: function () {
+      // Setting index to the next word
       let index = ++currentWord.wordIndex;
+      // Splitting the word into characters
       currentWord.word = testWords[index].split("");
+
+      // Initializing user to empty array to store user input
       currentWord.user = [];
+
       return index;
     },
 
@@ -84,26 +92,32 @@ let dataModule = (function () {
     },
 
     calcWPM: function (word) {
+      // Incrementing the total correct word if the word is correct
       if (isCorrectWord(word)) {
         testIndicators.totalCorrectWords++;
       }
 
+      // Calculating WPM
       testIndicators.wpm =
         testIndicators.totalCorrectWords / (testIndicators.totalTestTime / 60);
     },
 
     calcCPM: function (word) {
+      // Incrementing the total correct characters if the word is correct
       if (isCorrectWord(word)) {
         testIndicators.totalCorrectChars += word.word.length;
       }
 
+      // Incrementing the total characters
       testIndicators.totalChars += word.word.length;
 
+      // Calculating CPM
       testIndicators.cpm =
         testIndicators.totalCorrectChars / (testIndicators.totalTestTime / 60);
     },
 
     calcAccuracy: function () {
+      // Calculating accuracy
       testIndicators.accuracy =
         (testIndicators.totalCorrectChars / testIndicators.totalChars) * 100;
     },
@@ -120,6 +134,7 @@ let dataModule = (function () {
     },
 
     calcLevel: function () {
+      // Determining the level and it's information based on the WPM of the user
       if (testIndicators.wpm <= 20) {
         return {
           level: 1,
@@ -172,6 +187,7 @@ let dataModule = (function () {
     },
 
     verifyUsername: function (name) {
+      // Checking for a valid username
       if (name == "" || name == null) {
         return false;
       } else if (name.length > 30) {

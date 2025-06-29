@@ -7,7 +7,6 @@ let cerModule = (function () {
   let primaryColor = "#188ba3";
   let secondaryColor = "#000000";
 
-  // Private methods
   // Public methods
   return {
     generateCertificate: function (name, wpm, cpm, accuracy) {
@@ -89,6 +88,7 @@ let cerModule = (function () {
       accuracy = Math.round(accuracy, 1);
       doc.text(String(accuracy) + "%", 200, 172, "center");
 
+      // Saving the certification
       doc.save("certificate.pdf");
     },
   };

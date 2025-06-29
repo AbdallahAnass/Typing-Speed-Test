@@ -52,6 +52,7 @@ let uiModule = (function () {
   // Public Methods
   return {
     displayResults: function (data) {
+      // Changing UI elements to display new results
       DOMelements.wpm.innerHTML = data.wpm;
       DOMelements.cpm.innerHTML = data.cpm;
       DOMelements.accuracy.innerHTML = Math.round(data.accuracy, 1);
@@ -67,14 +68,17 @@ let uiModule = (function () {
     },
 
     getUserInput: function () {
+      // Getting user input
       return DOMelements.userInput.value;
     },
 
     clearInput: function () {
+      // Clearing the input field
       DOMelements.userInput.value = "";
     },
 
     highlightWord: function (index) {
+      // Highlighting the active word
       DOMelements.screen.children[index].className = "active";
       if (index != 0) {
         DOMelements.screen.children[index - 1].className = "";
@@ -85,6 +89,7 @@ let uiModule = (function () {
     },
 
     colorChars: function (word) {
+      // Setting character color based on right and wrong
       for (let i = 0; i < word.word.length; i++) {
         if (word.word[i] == word.user[i]) {
           DOMelements.screen.children[word.wordIndex].children[i].className =
@@ -100,6 +105,7 @@ let uiModule = (function () {
     },
 
     ifWordNotFinished: function (word) {
+      // Setting the word as wrong if user didn't finish typing the word to the end
       if (word.word.length != word.user.length) {
         for (let i = word.user.length; i < word.word.length; i++) {
           DOMelements.screen.children[word.wordIndex].children[i].className =
