@@ -1,0 +1,1 @@
+eventsModule.initializeTest();

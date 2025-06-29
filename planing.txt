@@ -1,0 +1,20 @@
+Requirements
+
+1- Start the app
+    - Set indicators to zero
+    - Set time to 60s
+    - Display the random words
+2- User starts typing
+    - Start count down
+    - Set active word
+    - Handling user input
+    - Setting the words as we go
+    - Color for each character.
+    - Calculate words per Minute
+    - Calculate characters per Minute
+    - Calculate accuracy
+    - Display results as we go
+
+3- End test when time ends.
+
+4- Display certificate.
