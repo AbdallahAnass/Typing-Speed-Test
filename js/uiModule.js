@@ -161,9 +161,6 @@ let uiModule = (function () {
     },
 
     renderRetake: function () {
-      // Deleting the generate button
-      document.getElementById("generate").remove();
-
       // Rendering the retake button
       let retake = document.createElement("button");
       retake.innerHTML = "Retake test";
@@ -178,6 +175,31 @@ let uiModule = (function () {
     reloadPage: function () {
       // Reloading page
       location.reload();
+    },
+
+    renderLoadingSpinner: function () {
+      // Creating the spinner element
+      let element = document.createElement("span");
+      element.className = "loader";
+
+      // Getting the generate button index
+      let btnIndex =
+        DOMelements.cerForm.children[DOMelements.cerForm.children.length - 1];
+
+      // Removing the generate Button
+      DOMelements.cerForm.children[
+        DOMelements.cerForm.children.length - 1
+      ].remove();
+
+      // Adding the spinner
+      DOMelements.cerForm.append(element);
+    },
+
+    stopSpinner: function () {
+      // Removing the generate Button
+      DOMelements.cerForm.children[
+        DOMelements.cerForm.children.length - 1
+      ].remove();
     },
   };
 })();

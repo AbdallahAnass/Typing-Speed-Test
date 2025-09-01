@@ -7,9 +7,19 @@ let cerModule = (function () {
   let primaryColor = "#188ba3";
   let secondaryColor = "#000000";
 
+  // Private Methods
+  function loadImage(src) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error("image is not loaded"));
+      img.src = src;
+    });
+  }
+
   // Public methods
   return {
-    generateCertificate: function (name, wpm, cpm, accuracy) {
+    generateCertificate: async function (name, wpm, cpm, accuracy) {
       // PDF object
       const doc = new jsPDF({
         orientation: "landscape",
@@ -18,7 +28,7 @@ let cerModule = (function () {
       });
 
       // Adding border image source
-      img.src = `images/border.jpg`;
+      img = await loadImage(`images/border.jpg`);
 
       // Adding border to the certification
       doc.addImage(img, "JPG", 0, 0, 279.4, 215.9);

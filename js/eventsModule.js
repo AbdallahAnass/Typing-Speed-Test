@@ -83,7 +83,7 @@ let eventsModule = (function () {
     uiModule.displayForm(level);
   }
 
-  function showCertification() {
+  async function showCertification() {
     // Getting user name
     let username = uiModule.getUsername();
 
@@ -92,19 +92,21 @@ let eventsModule = (function () {
 
     // Generating the certification after verifying username
     if (dataModule.verifyUsername(username)) {
-      cerModule.generateCertificate(
+      // Display the loading spinner
+      uiModule.renderLoadingSpinner();
+
+      // Starting the generation of the certificate
+      await cerModule.generateCertificate(
         username,
         data.wpm,
         data.cpm,
         data.accuracy
       );
 
-      // Removing event listener from generate button
-      document
-        .getElementById("generate")
-        .removeEventListener("click", showCertification);
+      // removing the spinner after generation is done
+      uiModule.stopSpinner();
 
-      // Replacing generate button with retake test button
+      // Render retake test button
       uiModule.renderRetake();
 
       // Adding an eventListener to the retake button
